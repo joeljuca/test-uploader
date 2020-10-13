@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --no-config -l './**/*.{js,json,md}'",
+    "format": "prettier --no-config -w './**/*.{js,json,md}'"
   },
   "dependencies": {
     "next": "9.5.5",
