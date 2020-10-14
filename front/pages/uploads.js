@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { DefaultLayout } from "../layouts/default";
 
-const Uploads = ({ onSubmitFile, onChangeFile }) => {
+const Uploads = ({ headers, entries, onSubmitFile, onChangeFile }) => {
   return (
     <DefaultLayout>
       <Head>
@@ -32,6 +32,27 @@ const Uploads = ({ onSubmitFile, onChangeFile }) => {
                   </p>
                 </fieldset>
               </form>
+
+              {entries && (
+                <table>
+                  <thead>
+                    {headers && (
+                      <tr>
+                        {headers.map((header) => (
+                          <th key={header}>{header}</th>
+                        ))}
+                      </tr>
+                    )}
+                    {entries.map((entry, i) => (
+                      <tr key={i}>
+                        {entry.map((field, j) => (
+                          <td key={j}>{field}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </thead>
+                </table>
+              )}
             </div>
           </div>
         </div>
