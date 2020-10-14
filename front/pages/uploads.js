@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { DefaultLayout } from "../layouts/default";
 
-function Uploads({ onFileSubmit }) {
+const Uploads = ({ onSubmitFile, onChangeFile }) => {
   return (
     <DefaultLayout>
       <Head>
@@ -21,11 +21,11 @@ function Uploads({ onFileSubmit }) {
         <div className="container">
           <div className="row">
             <div className="column">
-              <form>
-                <fieldset onSubmit={onFileSubmit || (() => undefined)}>
+              <form onSubmit={onSubmitFile}>
+                <fieldset>
                   <p>
                     <label htmlFor="f-file">File</label>
-                    <input type="file" id="f-file" placeholder="asdf" />
+                    <input type="file" id="f-file" onChange={onChangeFile} />
                   </p>
                   <p>
                     <button type="submit">Send</button>
@@ -38,6 +38,6 @@ function Uploads({ onFileSubmit }) {
       </main>
     </DefaultLayout>
   );
-}
+};
 
 export default Uploads;
