@@ -1,5 +1,36 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { DefaultLayout } from "../layouts/default";
+
+// https://reactpatterns.com/#container-component
+const UploadsContainer = () => {
+  let [file, setFile] = useState(null);
+  let [headers, setHeaders] = useState(null);
+  let [entries, setEntries] = useState(null);
+
+  return (
+    <Uploads
+      headers={headers}
+      entries={entries}
+      onSubmitFile={(event) => {
+        event.preventDefault();
+
+        // - [ ] Send the file to the server
+        // - [ ] Receive and set the headers and entries states
+        setHeaders("One Two Three".split(" "));
+        setEntries([
+          ["1", "2", "3"],
+          ["1", "2", "3"],
+          ["1", "2", "3"],
+        ]);
+      }}
+      onChangeFile={(event) => {
+        const file = event.target.files[0];
+        setFile(file);
+      }}
+    />
+  );
+};
 
 const Uploads = ({ headers, entries, onSubmitFile, onChangeFile }) => {
   return (
@@ -61,4 +92,4 @@ const Uploads = ({ headers, entries, onSubmitFile, onChangeFile }) => {
   );
 };
 
-export default Uploads;
+export default UploadsContainer;
