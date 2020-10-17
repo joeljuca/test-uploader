@@ -1,0 +1,27 @@
+{
+  "name": "back",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/cli.mjs",
+  "scripts": {
+    "start": "node src/cli.mjs server:start",
+    "dev": "nodemon src/cli.mjs server:start",
+    "db:setup": "node src/cli.mjs db:setup",
+    "db:seed": "node src/cli.mjs db:seed",
+    "db:drop": "node src/cli.mjs db:drop"
+  },
+  "dependencies": {
+    "@koa/router": "9.4.0",
+    "@sentry/node": "5.26.0",
+    "@sentry/tracing": "5.26.0",
+    "debug": "4.2.0",
+    "koa": "2.13.0",
+    "sequelize": "6.3.5",
+    "sqlite3": "5.0.0",
+    "yargs": "16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.5"
+  }
+}
