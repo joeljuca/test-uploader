@@ -1,0 +1,33 @@
+# direnv file. https://direnv.net
+#
+# To configure this project, duplicate this file - naming it `.envrc`, uncomment
+# and adjust the variable lines below, then run `direnv allow` in the project
+# directory. The values present on this example file are suggestions to what
+# will probably be the case for a development environment.
+#
+# Read more about software configuration in https://12factor.net/config
+
+#
+# Back-end
+#
+
+# Database config
+# export BACK_DATABASE_CONFIG='{"dialect":"sqlite","storage":"path/to/database.sqlite"}'
+
+# HTTP port
+# export BACK_HTTP_PORT=8080
+
+# Sentry configuration
+# export BACK_SENTRY_DSN=
+# export BACK_SENTRY_TRACES_SAMPLE_RATE="1.0"
+
+# debug. https://www.npmjs.com/package/debug
+# DEBUG=app:*
+
+#
+# Front-end
+#
+
+# Sentry configuration
+# export FRONT_SENTRY_DSN=
+# export FRONT_SENTRY_TRACES_SAMPLE_RATE="1.0"
