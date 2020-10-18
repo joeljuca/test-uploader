@@ -6,6 +6,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import * as db from "./db.mjs";
+import * as UserSeeder from "./seeders/user.seeder.mjs";
 import { startServer } from "./server.mjs";
 
 const debug = _debug("app:cli");
@@ -32,7 +33,8 @@ yargs(hideBin(process.argv))
     debug("command db:seed");
 
     try {
-      startServer(customConfig);
+      await db.connect({});
+      await db.seed({ seeders: [UserSeeder] });
 
       debug("Database seeded");
     } catch (error) {

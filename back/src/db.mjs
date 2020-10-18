@@ -38,7 +38,25 @@ export const setup = async ({
   // Dependency injections
   _sequelize = sequelize,
 }) => {
-  _sequelize.sync();
+  await _sequelize.sync();
+  debug("Database models synchronized");
+
+  return sequelize;
+};
+
+export const seed = async ({
+  seeders,
+  // Dependency injections
+  _sequelize = sequelize,
+}) => {
+  if (!seeders || !seeders?.length) {
+    throw new Error("Seeds unavailable");
+  }
+
+  await Promise.all(
+    seeders.map((Seeder) => (console.log(Seeder), Seeder.seed({})))
+  );
+
   debug("Database models synchronized");
 
   return sequelize;
